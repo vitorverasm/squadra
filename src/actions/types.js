@@ -1,0 +1,4 @@
+const TEST_ACTION = 'TEST_ACTION';
+const TEST_ACTION2 = 'LOGIN';
+
+export { TEST_ACTION, TEST_ACTION2 };
