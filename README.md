@@ -1,5 +1,5 @@
 # Squadra
-[![Build Status](https://travis-ci.com/vitorverasm/squadra.svg?branch=master)](https://travis-ci.com/vitorverasm/squadra) [![Coverage Status](https://coveralls.io/repos/github/vitorverasm/squadra/badge.svg?branch=master)](https://coveralls.io/github/vitorverasm/squadra?branch=master)
+[![Build Status](https://travis-ci.com/vitorverasm/squadra.svg?branch=develop)](https://travis-ci.com/vitorverasm/squadra) [![Coverage Status](https://coveralls.io/repos/github/vitorverasm/squadra/badge.svg?branch=develop)](https://coveralls.io/github/vitorverasm/squadra?branch=master)
 
 A visual note-taking app for your college classes.
 
