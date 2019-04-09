@@ -6,6 +6,7 @@ node_js:
 branches:
   only:
   - master
+  - develop
 cache:
   directories:
   - node_modules
@@ -14,5 +15,4 @@ before_install:
 install:
 - npm install
 script:
-- npm test
 - npm run coveralls

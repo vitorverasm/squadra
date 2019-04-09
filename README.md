@@ -1,16 +1,12 @@
 # Squadra
+[![Build Status](https://travis-ci.com/vitorverasm/squadra.svg?branch=master)](https://travis-ci.com/vitorverasm/squadra) [![Coverage Status](https://coveralls.io/repos/github/vitorverasm/squadra/badge.svg?branch=master)](https://coveralls.io/github/vitorverasm/squadra?branch=master)
 
 A visual note-taking app for your college classes.
 
-## Badges
-
-[![Build Status](https://travis-ci.com/vitorverasm/squadra.svg?branch=master)](https://travis-ci.com/vitorverasm/squadra)
-
-[![Coverage Status](https://coveralls.io/repos/github/vitorverasm/squadra/badge.svg?branch=master)](https://coveralls.io/github/vitorverasm/squadra?branch=master)
-
-##Template
+## Template
 
 This project is being done based on [this](https://www.npmjs.com/package/react-native-template-vitorverasm-starter) template.
 
 ## Authors
- * **Vitor Veras** - [Github](https://github.com/vitorverasm)
+
+*  **Vitor Veras** - [Github](https://github.com/vitorverasm)
