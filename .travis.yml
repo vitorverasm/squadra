@@ -15,6 +15,4 @@ before_install:
 install:
 - npm install
 script:
-- if [ $TRAVIS_BRANCH == "master" ]; then npm version minor; fi
-- if [ $TRAVIS_BRANCH == "develop" ]; then npm version patch; fi
 - npm run coveralls
