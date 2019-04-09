@@ -6,6 +6,7 @@ node_js:
 branches:
   only:
   - master
+  - develop
 cache:
   directories:
   - node_modules
@@ -14,5 +15,6 @@ before_install:
 install:
 - npm install
 script:
-- npm test
+- if [ $TRAVIS_BRANCH == "master" ]; then npm version minor; fi
+- if [ $TRAVIS_BRANCH == "develop" ]; then npm version patch; fi
 - npm run coveralls
