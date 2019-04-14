@@ -1,9 +1,10 @@
+import Moment from 'moment';
 import React, { Component } from 'react';
 import {
   StyleSheet, Text, TouchableOpacity, View
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { savePhoto, requestPermission } from '../../../utils/helpers';
+import { formatFilename, requestPermission, savePhoto } from '../../../utils/helpers';
 
 class Camera extends Component {
   constructor(props) {
@@ -13,19 +14,16 @@ class Camera extends Component {
     };
   }
 
-  componentDidMount() {
-    const { currentTag } = this.props;
-    console.log('currentTag: ', currentTag);
-  }
-
   takePicture = async () => {
     const { writeExternalPermission } = this.state;
     if (this.camera && writeExternalPermission) {
       const { currentTag } = this.props;
       const options = { quality: 0.5, doNotSave: true, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      savePhoto(data.base64, currentTag);
+      const filename = formatFilename(Moment().format('DD-MM-YY'));
+      savePhoto(data.base64, currentTag, filename);
     }
+    // TODO: Add case when writeExternalPermission = false
   };
 
   requestPermission = () => {
