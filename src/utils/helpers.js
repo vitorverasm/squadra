@@ -7,11 +7,14 @@ const savePhoto = (base64String, currentTagName, filename) => {
   const { dirs } = RNFetchBlob.fs;
   const basePath = Platform.OS === 'android' ? dirs.PictureDir : dirs.DocumentDir;
   const savePath = `${basePath}/${currentTagName}/${filename}`;
+  console.log('aqui2');
   RNFetchBlob.fs
     .writeFile(savePath, base64String, 'base64')
     .then(() => {
+      console.log('aqui3');
       if (Platform.OS === 'android') {
         RNFetchBlob.fs.scanFile([{ path: savePath, mime: 'image/png' }]);
+        console.log('aqui4');
       } else {
         CameraRoll.saveToCameraRoll(savePath);
       }
