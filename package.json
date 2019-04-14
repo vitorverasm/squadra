@@ -5,7 +5,7 @@
   "scripts": {
     "release": "node node_modules/react-native/local-cli/cli.js run-android --variant=release",
     "debug": "node node_modules/react-native/local-cli/cli.js run-android",
-    "clean": "cd android && gradlew clean && cd ..",
+    "clean": "cd android && ./gradlew clean && cd ..",
     "build:dev": "npm run clean && npm run debug",
     "build:release": "npm run clean && npm run release",
     "start": "node node_modules/react-native/local-cli/cli.js start",
