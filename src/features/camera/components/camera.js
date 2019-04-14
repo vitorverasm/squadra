@@ -3,6 +3,7 @@ import {
   StyleSheet, Text, TouchableOpacity, View
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
+import { savePhoto, requestPermission } from '../../../utils/helpers';
 
 class Camera extends Component {
   componentDidMount() {
@@ -11,10 +12,12 @@ class Camera extends Component {
   }
 
   takePicture = async () => {
-    if (this.camera) {
+    const permission = requestPermission();
+    if (this.camera && permission) {
+      const { currentTag } = this.props;
       const options = { quality: 0.5, doNotSave: true, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      console.log('URI: ', data.uri);
+      savePhoto(data.base64, currentTag);
     }
   };
 
@@ -27,10 +30,13 @@ class Camera extends Component {
           }}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
+          flashMode={RNCamera.Constants.FlashMode.off}
           captureAudio={false}
-          permissionDialogTitle="Permission to use camera"
-          permissionDialogMessage="We need your permission to use your phone camera"
+          pendingAuthorizationView={(
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <Text>Without permissions</Text>
+            </View>
+)}
         />
         <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
           <TouchableOpacity onPress={this.takePicture} style={styles.capture}>

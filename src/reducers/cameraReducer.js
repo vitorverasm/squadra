@@ -2,7 +2,7 @@ import * as types from '../actions/types';
 
 const initialState = {
   tags: [],
-  currentTag: ''
+  currentTag: 'Neural networks'
 };
 
 const cameraReducer = (state = initialState, action) => {
