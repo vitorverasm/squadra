@@ -21,7 +21,6 @@ class Camera extends Component {
     if (this.camera && writeExternalPermission) {
       const { currentTag } = this.props;
       const options = { quality: 0.5, doNotSave: true, base64: true };
-      console.log('aqui1');
       const data = await this.camera.takePictureAsync(options);
       const filename = formatFilename(Moment().format('DD-MM-YY'));
       savePhoto(data.base64, currentTag, filename);
