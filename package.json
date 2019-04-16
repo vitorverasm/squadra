@@ -71,7 +71,8 @@
       "!<rootDir>/node_modules/",
       "!<rootDir>/src/assets/",
       "!<rootDir>/src/utils/*",
-      "!<rootDir>/src/store.js"
+      "!<rootDir>/src/store.js",
+      "!**/*.container.js"
     ]
   },
   "nyc": {
@@ -89,7 +90,8 @@
       "build",
       "src/store.js",
       "src/utils/*",
-      "src/assets/*"
+      "src/assets/*",
+      "**/*.container.js"
     ]
   }
 }
