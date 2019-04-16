@@ -6,12 +6,12 @@ import CustomModal from '../CustomModal';
 describe('CustomModal', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<CustomModal />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
   });
   it('renders with props', () => {
     const wrapper = shallow(
       <CustomModal visible close={jest.fn} content={<View />} height="50%" />
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
   });
 });

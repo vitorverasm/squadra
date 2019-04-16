@@ -28,7 +28,7 @@ class Camera extends Component {
     // TODO: Add case when writeExternalPermission = false
   };
 
-  requestPermission = () => {
+  onCameraReady = () => {
     const permission = requestPermission();
     this.setState({ writeExternalPermission: permission });
   };
@@ -45,7 +45,7 @@ class Camera extends Component {
           type={RNCamera.Constants.Type.back}
           flashMode={RNCamera.Constants.FlashMode.off}
           captureAudio={false}
-          onCameraReady={this.requestPermission}
+          onCameraReady={this.onCameraReady}
           pendingAuthorizationView={(
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
               <Text>Without permissions</Text>

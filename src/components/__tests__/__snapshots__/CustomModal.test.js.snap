@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CustomModal renders correctly 1`] = `ShallowWrapper {}`;
+exports[`CustomModal renders correctly 1`] = `
+"<Component visible={true} transparent={true} animationType=\\"slide\\" onRequestClose={[undefined]} hardwareAccelerated={false}>
+  <View style={{...}}>
+    <View style={{...}}>
+      <View style={{...}}>
+        <TouchableOpacity onPress={[undefined]} activeOpacity={0.2}>
+          <Icon name=\\"x\\" size={25} color=\\"#F73939\\" style={{...}} allowFontScaling={false} />
+        </TouchableOpacity>
+      </View>
+      <View style={{...}} />
+    </View>
+  </View>
+</Component>"
+`;
 
-exports[`CustomModal renders with props 1`] = `ShallowWrapper {}`;
+exports[`CustomModal renders with props 1`] = `
+"<Component visible={true} transparent={true} animationType=\\"slide\\" onRequestClose={[Function: bound fn]} hardwareAccelerated={false}>
+  <View style={{...}}>
+    <View style={{...}}>
+      <View style={{...}}>
+        <TouchableOpacity onPress={[Function: bound fn]} activeOpacity={0.2}>
+          <Icon name=\\"x\\" size={25} color=\\"#F73939\\" style={{...}} allowFontScaling={false} />
+        </TouchableOpacity>
+      </View>
+      <View style={{...}}>
+        <View />
+      </View>
+    </View>
+  </View>
+</Component>"
+`;

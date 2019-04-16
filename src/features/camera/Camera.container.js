@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Camera from './components/camera';
+import Camera from './components/Camera';
 
 const mapStateToProps = state => ({
   currentTag: state.camera.currentTag
