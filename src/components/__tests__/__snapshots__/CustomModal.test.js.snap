@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomModal renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`CustomModal renders with props 1`] = `ShallowWrapper {}`;
