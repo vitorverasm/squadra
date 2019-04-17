@@ -1,16 +1,14 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import AuthStack from './auth';
-import HomeStack from './home';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
+import CameraContainer from '../features/camera/Camera.container';
 import * as routes from './routes';
 
 export default createAppContainer(
-  createSwitchNavigator(
+  createStackNavigator(
     {
-      [routes.HOME]: HomeStack,
-      [routes.AUTH]: AuthStack
+      [routes.CAMERA]: CameraContainer
     },
     {
-      initialRouteName: routes.AUTH
+      initialRouteName: routes.CAMERA
     }
   )
 );

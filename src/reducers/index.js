@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import testReducer from './testReducer';
+import cameraReducer from './cameraReducer';
 
 export default combineReducers({
-  testReducer
+  camera: cameraReducer
 });
