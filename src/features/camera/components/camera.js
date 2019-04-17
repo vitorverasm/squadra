@@ -26,6 +26,7 @@ class Camera extends Component {
       savePhoto(data.base64, currentTag, filename);
     }
     // TODO: Add case when writeExternalPermission = false
+    // Go to pending view
   };
 
   onCameraReady = () => {
