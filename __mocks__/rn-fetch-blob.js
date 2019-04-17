@@ -9,6 +9,9 @@ export default {
     }
   },
   fs: {
+    writeFile: () => new Promise(((resolve) => {
+      resolve('done');
+    })),
     exists: existsMock,
     dirs: {
       MainBundleDir: () => {},

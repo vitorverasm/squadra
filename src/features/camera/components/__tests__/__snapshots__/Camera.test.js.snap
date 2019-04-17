@@ -10,6 +10,6 @@ exports[`Camera renders correctly 1`] = `
       </Text>
     </TouchableOpacity>
   </View>
-  <CustomModal close={[Function: close]} visible={false} />
+  <CustomModal close={[Function]} visible={false} />
 </View>"
 `;

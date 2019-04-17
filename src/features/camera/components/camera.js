@@ -33,6 +33,10 @@ class Camera extends Component {
     this.setState({ writeExternalPermission: permission });
   };
 
+  closeModal = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     const { showModal } = this.state;
     return (
@@ -57,12 +61,7 @@ class Camera extends Component {
             <Text style={{ fontSize: 14 }}> SNAP </Text>
           </TouchableOpacity>
         </View>
-        <CustomModal
-          close={() => {
-            this.setState({ showModal: false });
-          }}
-          visible={showModal}
-        />
+        <CustomModal close={this.closeModal} visible={showModal} />
       </View>
     );
   }
