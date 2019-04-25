@@ -67,7 +67,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-navigation|@react-navigation)"
+      "node_modules/(?!(jest-)?react-native|react-navigation|@react-navigation|@shoutem/ui|@shoutem/theme|@shoutem/animation)"
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
