@@ -1,7 +1,10 @@
+import { iOSColors } from 'react-native-typography';
+
 const colors = {
-  primary: '#F73939',
-  white: '#FFFFFF',
-  black: '#333333',
+  primary: iOSColors.red,
+  white: iOSColors.white,
+  black: iOSColors.black,
+  gray: iOSColors.gray,
   modalOpacity: 'rgba(51,51,51,0.50)'
 };
 

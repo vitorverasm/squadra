@@ -23,12 +23,19 @@ const savePhoto = (base64String, currentTagName, filename) => {
 
 const formatFilename = time => `${time}.png`;
 
-const requestPermission = async () => {
+const requestPermission = async (permissionType) => {
   if (Platform.OS === 'android') {
     try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
-      );
+      let granted;
+      if (permissionType === 'storage') {
+        granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+        );
+      }
+      if (permissionType === 'camera') {
+        granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA);
+        console.log({ granted });
+      }
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         return true;
       }

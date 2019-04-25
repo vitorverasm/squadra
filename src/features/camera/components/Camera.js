@@ -6,13 +6,16 @@ import {
 import { RNCamera } from 'react-native-camera';
 import CustomModal from '../../../components/CustomModal';
 import { formatFilename, requestPermission, savePhoto } from '../../../utils/helpers';
+import NotAuthMessage from '../../../components/NotAuthMessage';
+import { colors } from '../../../utils/styles';
 
 class Camera extends Component {
   constructor(props) {
     super(props);
     this.state = {
       writeExternalPermission: false,
-      showModal: false
+      showModal: false,
+      showErrorModal: false
     };
   }
 
@@ -30,16 +33,28 @@ class Camera extends Component {
   };
 
   onCameraReady = () => {
-    const permission = requestPermission();
-    this.setState({ writeExternalPermission: permission });
+    const permission = requestPermission('storage');
+    this.setState({ writeExternalPermission: permission, cameraReady: true });
   };
 
   closeModal = () => {
     this.setState({ showModal: false });
   };
 
-  render() {
+  renderModal = (content, height) => {
     const { showModal } = this.state;
+    return (
+      <CustomModal close={this.closeModal} visible={showModal} content={content} height={height} />
+    );
+  };
+
+  requestCameraPermission = () => {
+    const permission = requestPermission('camera');
+    console.log({ permission, camera: this.camera });
+  };
+
+  render() {
+    const { cameraReady, showErrorModal } = this.state;
     return (
       <View style={styles.container}>
         <RNCamera
@@ -51,18 +66,31 @@ class Camera extends Component {
           flashMode={RNCamera.Constants.FlashMode.off}
           captureAudio={false}
           onCameraReady={this.onCameraReady}
-          pendingAuthorizationView={(
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <Text>Without permissions</Text>
-            </View>
+          notAuthorizedView={(
+            <CustomModal
+              content={<NotAuthMessage requestPermission={this.requestCameraPermission} />}
+              visible={showErrorModal}
+              height="90%"
+              close={() => {
+                this.setState({ showErrorModal: false });
+              }}
+            />
 )}
         />
-        <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
-            <Text style={{ fontSize: 14 }}> SNAP </Text>
-          </TouchableOpacity>
-        </View>
-        <CustomModal close={this.closeModal} visible={showModal} />
+        {cameraReady ? (
+          <View
+            style={{
+              flex: 0,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              backgroundColor: colors.black
+            }}
+          >
+            <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
+              <Text style={{ fontSize: 14, color: colors.white }}> SNAP </Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
       </View>
     );
   }
@@ -81,7 +109,7 @@ const styles = StyleSheet.create({
   },
   capture: {
     flex: 0,
-    backgroundColor: '#fff',
+    backgroundColor: colors.primary,
     borderRadius: 5,
     padding: 15,
     paddingHorizontal: 20,
