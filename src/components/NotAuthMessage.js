@@ -1,11 +1,9 @@
 import React from 'react';
-import {
-  StyleSheet, Text, View, TouchableOpacity
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { human, sanFranciscoWeights } from 'react-native-typography';
 import { colors } from '../utils/styles';
 
-const NotAuthMessage = ({ requestPermission }) => (
+const NotAuthMessage = () => (
   <View style={styles.container}>
     <View style={styles.content}>
       <View style={styles.img} />
@@ -17,11 +15,6 @@ const NotAuthMessage = ({ requestPermission }) => (
         <Text style={styles.message}>
           Você precisa conceder as permissões necessárias para que o Squadra funcione direitinho.
         </Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={requestPermission}>
-          <Text style={styles.buttonText}>Conceder permissões</Text>
-        </TouchableOpacity>
       </View>
     </View>
   </View>
@@ -37,7 +30,8 @@ const styles = StyleSheet.create({
     height: 50
   },
   content: {
-    flex: 1
+    flex: 1,
+    marginTop: 50
   },
   img: {
     flex: 0,
@@ -53,22 +47,24 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   label: {
-    color: colors.black,
     textAlign: 'center',
     ...human.largeTitle,
-    ...sanFranciscoWeights.bold
+    ...sanFranciscoWeights.bold,
+    color: colors.primary,
   },
   message: {
-    color: colors.black,
     textAlign: 'center',
     ...human.body,
-    ...sanFranciscoWeights.regular
+    ...sanFranciscoWeights.regular,
+    color: colors.primary,
   },
   buttonContainer: {
     flex: 1
   },
   button: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: colors.primary
   },
   buttonText: {

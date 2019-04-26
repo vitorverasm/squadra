@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import { colors } from '../utils/styles';
 
 const CustomModal = ({
-  visible, close, content, height
+  visible, close, content, height, contentStyle
 }) => (
   <Modal visible={visible} transparent animationType="slide" onRequestClose={close}>
     <View style={styles.outside}>
@@ -21,7 +21,7 @@ const CustomModal = ({
             />
           </TouchableOpacity>
         </View>
-        <View style={styles.childrenContainer}>{content || null}</View>
+        <View style={[styles.childrenContainer, contentStyle]}>{content || null}</View>
       </View>
     </View>
   </Modal>
@@ -30,9 +30,7 @@ const CustomModal = ({
 const styles = StyleSheet.create({
   childrenContainer: {
     flex: 1,
-    marginHorizontal: 24,
-    marginTop: 59,
-    marginBottom: 43
+    marginTop: 60
   },
   iconContainer: {
     position: 'absolute',

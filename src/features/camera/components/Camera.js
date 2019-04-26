@@ -14,8 +14,7 @@ class Camera extends Component {
     super(props);
     this.state = {
       writeExternalPermission: false,
-      showModal: false,
-      showErrorModal: false
+      showModal: false
     };
   }
 
@@ -48,13 +47,8 @@ class Camera extends Component {
     );
   };
 
-  requestCameraPermission = () => {
-    const permission = requestPermission('camera');
-    console.log({ permission, camera: this.camera });
-  };
-
   render() {
-    const { cameraReady, showErrorModal } = this.state;
+    const { cameraReady } = this.state;
     return (
       <View style={styles.container}>
         <RNCamera
@@ -65,17 +59,14 @@ class Camera extends Component {
           type={RNCamera.Constants.Type.back}
           flashMode={RNCamera.Constants.FlashMode.off}
           captureAudio={false}
+          onStatusChange={({ cameraStatus }) => {
+            console.log({ onStatusChange: cameraStatus });
+            if (cameraStatus === 'NOT_AUTHORIZED') {
+              requestPermission('camera');
+            }
+          }}
           onCameraReady={this.onCameraReady}
-          notAuthorizedView={(
-            <CustomModal
-              content={<NotAuthMessage requestPermission={this.requestCameraPermission} />}
-              visible={showErrorModal}
-              height="90%"
-              close={() => {
-                this.setState({ showErrorModal: false });
-              }}
-            />
-)}
+          notAuthorizedView={<NotAuthMessage />}
         />
         {cameraReady ? (
           <View
