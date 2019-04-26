@@ -2,6 +2,6 @@
 
 exports[`Camera renders correctly 1`] = `
 "<View style={{...}}>
-  <RNCamera style={{...}} type=\\"back\\" flashMode={[undefined]} captureAudio={false} onCameraReady={[Function]} notAuthorizedView={{...}} />
+  <RNCamera style={{...}} type=\\"back\\" flashMode={[undefined]} captureAudio={false} onStatusChange={[Function: onStatusChange]} onCameraReady={[Function]} notAuthorizedView={{...}} />
 </View>"
 `;
