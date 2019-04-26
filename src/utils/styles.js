@@ -5,6 +5,7 @@ const colors = {
   white: iOSColors.white,
   black: iOSColors.black,
   gray: iOSColors.gray,
+  crimsonRed: '#A50B25',
   modalOpacity: 'rgba(51,51,51,0.50)'
 };
 

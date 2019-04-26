@@ -3,8 +3,8 @@ import {
   Image, StyleSheet, Text, View
 } from 'react-native';
 import { human, sanFranciscoWeights } from 'react-native-typography';
-import { colors } from '../utils/styles';
-import warningImage from '../assets/warning.png';
+import { colors } from '../../../utils/styles';
+import warningImage from '../../../assets/warning.png';
 
 const NotAuthMessage = () => (
   <View style={styles.container}>

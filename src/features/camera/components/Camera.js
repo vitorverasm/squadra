@@ -1,13 +1,11 @@
 import Moment from 'moment';
 import React, { Component } from 'react';
-import {
-  StyleSheet, Text, TouchableOpacity, View
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import CustomModal from '../../../components/CustomModal';
 import { formatFilename, requestPermission, savePhoto } from '../../../utils/helpers';
-import NotAuthMessage from '../../../components/NotAuthMessage';
-import { colors } from '../../../utils/styles';
+import ActionBar from './ActionBar';
+import NotAuthMessage from './NotAuthMessage';
 
 class Camera extends Component {
   constructor(props) {
@@ -27,8 +25,6 @@ class Camera extends Component {
       const filename = formatFilename(Moment().format('DD-MM-YY'));
       savePhoto(data.base64, currentTag, filename);
     }
-    // TODO: Add case when writeExternalPermission = false
-    // Go to pending view
   };
 
   onCameraReady = () => {
@@ -60,7 +56,6 @@ class Camera extends Component {
           flashMode={RNCamera.Constants.FlashMode.off}
           captureAudio={false}
           onStatusChange={({ cameraStatus }) => {
-            console.log({ onStatusChange: cameraStatus });
             if (cameraStatus === 'NOT_AUTHORIZED') {
               requestPermission('camera');
             }
@@ -68,20 +63,7 @@ class Camera extends Component {
           onCameraReady={this.onCameraReady}
           notAuthorizedView={<NotAuthMessage />}
         />
-        {cameraReady ? (
-          <View
-            style={{
-              flex: 0,
-              flexDirection: 'row',
-              justifyContent: 'center',
-              backgroundColor: colors.black
-            }}
-          >
-            <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
-              <Text style={{ fontSize: 14, color: colors.white }}> SNAP </Text>
-            </TouchableOpacity>
-          </View>
-        ) : null}
+        {cameraReady ? <ActionBar takePhoto={this.takePicture} /> : null}
       </View>
     );
   }
@@ -91,21 +73,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'black'
+    backgroundColor: 'transparent'
   },
   preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: colors.primary,
-    borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20
+    flex: 1
   }
 });
 
