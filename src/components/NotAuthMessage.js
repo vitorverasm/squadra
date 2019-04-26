@@ -1,6 +1,7 @@
-import { Button } from '@shoutem/ui';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet, Text, View, TouchableOpacity
+} from 'react-native';
 import { human, sanFranciscoWeights } from 'react-native-typography';
 import { colors } from '../utils/styles';
 
@@ -18,9 +19,9 @@ const NotAuthMessage = ({ requestPermission }) => (
         </Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button style={styles.button} styleName="full-width" onPress={requestPermission}>
+        <TouchableOpacity style={styles.button} onPress={requestPermission}>
           <Text style={styles.buttonText}>Conceder permissões</Text>
-        </Button>
+        </TouchableOpacity>
       </View>
     </View>
   </View>
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   button: {
+    flex: 1,
     backgroundColor: colors.primary
   },
   buttonText: {

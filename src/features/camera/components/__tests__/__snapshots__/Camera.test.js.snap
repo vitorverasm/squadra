@@ -2,14 +2,6 @@
 
 exports[`Camera renders correctly 1`] = `
 "<View style={{...}}>
-  <RNCamera style={{...}} type=\\"back\\" flashMode={[undefined]} captureAudio={false} onCameraReady={[Function]} pendingAuthorizationView={{...}} />
-  <View style={{...}}>
-    <TouchableOpacity onPress={[Function: _callee]} style={{...}} activeOpacity={0.2}>
-      <Text style={{...}}>
-         SNAP 
-      </Text>
-    </TouchableOpacity>
-  </View>
-  <CustomModal close={[Function]} visible={false} />
+  <RNCamera style={{...}} type=\\"back\\" flashMode={[undefined]} captureAudio={false} onCameraReady={[Function]} notAuthorizedView={{...}} />
 </View>"
 `;

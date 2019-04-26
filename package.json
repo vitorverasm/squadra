@@ -19,7 +19,6 @@
     "rn-menu": "adb shell input keyevent KEYCODE_MENU"
   },
   "dependencies": {
-    "@shoutem/ui": "^0.23.20",
     "moment": "^2.24.0",
     "react": "16.8.3",
     "react-native": "0.59.3",
@@ -67,7 +66,7 @@
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-navigation|@react-navigation|@shoutem/ui|@shoutem/theme|@shoutem/animation)"
+      "node_modules/(?!(jest-)?react-native|react-navigation|@react-navigation)"
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
