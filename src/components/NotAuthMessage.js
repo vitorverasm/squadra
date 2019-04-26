@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  Image, StyleSheet, Text, View
+} from 'react-native';
 import { human, sanFranciscoWeights } from 'react-native-typography';
 import { colors } from '../utils/styles';
+import warningImage from '../assets/warning.png';
 
 const NotAuthMessage = () => (
   <View style={styles.container}>
     <View style={styles.content}>
-      <View style={styles.img} />
+      <Image style={styles.img} source={warningImage} />
       <View style={styles.messageContainer}>
         <Text style={styles.label}>
           Oops!
@@ -39,7 +42,7 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
     borderRadius: 8,
-    backgroundColor: colors.gray
+    backgroundColor: 'transparent'
   },
   messageContainer: {
     flex: 3,
@@ -50,13 +53,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...human.largeTitle,
     ...sanFranciscoWeights.bold,
-    color: colors.primary,
+    color: colors.primary
   },
   message: {
     textAlign: 'center',
     ...human.body,
-    ...sanFranciscoWeights.regular,
-    color: colors.primary,
+    ...sanFranciscoWeights.medium,
+    color: colors.primary
   },
   buttonContainer: {
     flex: 1
