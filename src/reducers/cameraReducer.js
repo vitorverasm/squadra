@@ -1,8 +1,13 @@
 import * as types from '../actions/types';
 
 const initialState = {
-  tags: [],
-  currentTag: 'Neural networks'
+  tags: [
+    { id: '0', tagName: 'Neural Networks' },
+    { id: '1', tagName: 'Statistics' },
+    { id: '2', tagName: 'Linear Algebra' },
+    { id: '3', tagName: 'Artificial Inteligence' }
+  ],
+  currentTag: { id: '0', tagName: 'Neural Networks' }
 };
 
 const cameraReducer = (state = initialState, action) => {
@@ -11,6 +16,12 @@ const cameraReducer = (state = initialState, action) => {
       return {
         ...state,
         currentTag: action.payload
+      };
+    }
+    case types.CLEAR_CURRENT_TAG: {
+      return {
+        ...state,
+        currentTag: null
       };
     }
     default:

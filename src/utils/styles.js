@@ -6,7 +6,7 @@ const colors = {
   black: iOSColors.black,
   gray: iOSColors.gray,
   crimsonRed: '#A50B25',
-  modalOpacity: 'rgba(51,51,51,0.50)'
+  modalOpacity: 'rgba(20,20,23,0.5)'
 };
 
 const fonts = {

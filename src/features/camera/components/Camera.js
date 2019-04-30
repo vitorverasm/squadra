@@ -12,7 +12,8 @@ class Camera extends Component {
     super(props);
     this.state = {
       writeExternalPermission: false,
-      showModal: false
+      showModal: false,
+      cameraFlash: RNCamera.Constants.FlashMode.off
     };
   }
 
@@ -23,7 +24,7 @@ class Camera extends Component {
       const options = { quality: 0.5, doNotSave: true, base64: true };
       const data = await this.camera.takePictureAsync(options);
       const filename = formatFilename(Moment().format('DD-MM-YY'));
-      savePhoto(data.base64, currentTag, filename);
+      savePhoto(data.base64, currentTag.tagName, filename);
     }
   };
 
@@ -43,8 +44,21 @@ class Camera extends Component {
     );
   };
 
+  toggleFlash = () => {
+    const { cameraFlash } = this.state;
+    const flashMode = cameraFlash === RNCamera.Constants.FlashMode.off
+      ? RNCamera.Constants.FlashMode.on
+      : RNCamera.Constants.FlashMode.off;
+    this.setState({ cameraFlash: flashMode });
+  };
+
+  goToAlbums = () => {
+    console.log('Go to albums');
+  };
+
   render() {
-    const { cameraReady } = this.state;
+    const { cameraReady, cameraFlash } = this.state;
+    const { tags, currentTag, chooseTagAction } = this.props;
     return (
       <View style={styles.container}>
         <RNCamera
@@ -53,7 +67,7 @@ class Camera extends Component {
           }}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.off}
+          flashMode={cameraFlash}
           captureAudio={false}
           onStatusChange={({ cameraStatus }) => {
             if (cameraStatus === 'NOT_AUTHORIZED') {
@@ -63,7 +77,18 @@ class Camera extends Component {
           onCameraReady={this.onCameraReady}
           notAuthorizedView={<NotAuthMessage />}
         />
-        {cameraReady ? <ActionBar takePhoto={this.takePicture} /> : null}
+        {cameraReady ? (
+          <ActionBar
+            takePhoto={this.takePicture}
+            toggleFlash={this.toggleFlash}
+            flashOn={cameraFlash}
+            goToAlbums={this.goToAlbums}
+            tags={tags}
+            currentTag={currentTag}
+            toggleTag={chooseTagAction}
+          />
+        ) : null}
+        {this.renderModal()}
       </View>
     );
   }
