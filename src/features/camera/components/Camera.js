@@ -58,7 +58,6 @@ class Camera extends Component {
 
   render() {
     const { cameraReady, cameraFlash } = this.state;
-    const { tags, currentTag, chooseTagAction } = this.props;
     return (
       <View style={styles.container}>
         <RNCamera
@@ -83,9 +82,6 @@ class Camera extends Component {
             toggleFlash={this.toggleFlash}
             flashOn={cameraFlash}
             goToAlbums={this.goToAlbums}
-            tags={tags}
-            currentTag={currentTag}
-            toggleTag={chooseTagAction}
           />
         ) : null}
         {this.renderModal()}

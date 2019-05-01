@@ -12,10 +12,7 @@ const TagSelector = ({ tags, currentTag, toggleTag }) => (
     renderItem={({ item }) => (
       <TagCard
         tagName={item.tagName}
-        onPress={() => {
-          console.log('currentTag fora: ', currentTag);
-          toggleTag(item, currentTag);
-        }}
+        onPress={() => toggleTag(item)}
         checked={currentTag.id === item.id}
       />
     )}

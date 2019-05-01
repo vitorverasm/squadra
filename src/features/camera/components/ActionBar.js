@@ -5,20 +5,14 @@ import {
 import Icon from 'react-native-vector-icons/Feather';
 import { human, sanFranciscoWeights } from 'react-native-typography';
 import { colors } from '../../../utils/styles';
-import TagSelector from './TagSelector';
+import TagSelectorContainer from '../TagSelector.container';
 
 const ActionBar = ({
-  takePhoto,
-  toggleFlash,
-  goToAlbums,
-  flashOn,
-  tags,
-  currentTag,
-  toggleTag
+  takePhoto, toggleFlash, goToAlbums, flashOn
 }) => (
   <View style={styles.container}>
     <View style={{ flex: 1, backgroundColor: 'trasparent', marginBottom: 5 }}>
-      <TagSelector tags={tags} currentTag={currentTag} toggleTag={toggleTag} />
+      <TagSelectorContainer />
     </View>
     <View style={styles.actionBar}>
       <TouchableOpacity style={styles.box} onPress={toggleFlash}>

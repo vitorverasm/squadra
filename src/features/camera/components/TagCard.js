@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
     flex: 0,
     flexDirection: 'row',
     borderRadius: 4,
-    paddingVertical: 5,
-    paddingHorizontal: 10,
     height: 35,
     marginHorizontal: 5,
     alignItems: 'center',
@@ -39,7 +37,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'transparent',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginVertical: 5,
+    marginHorizontal: 10,
   },
   tagLabel: {
     ...human.footnote,
