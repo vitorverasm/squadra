@@ -20,7 +20,7 @@ describe('Camera', () => {
   });
 
   it('takePicture', async () => {
-    const wrapper = shallow(<Camera />);
+    const wrapper = shallow(<Camera currentTag={{ id: '0', tagName: 'Neural Networks' }} />);
     wrapper.instance().camera = {
       takePictureAsync: jest.fn
     };

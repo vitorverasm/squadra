@@ -3,5 +3,6 @@
 exports[`Camera renders correctly 1`] = `
 "<View style={{...}}>
   <RNCamera style={{...}} type=\\"back\\" flashMode={[undefined]} captureAudio={false} onStatusChange={[Function: onStatusChange]} onCameraReady={[Function]} notAuthorizedView={{...}} />
+  <CustomModal close={[Function]} visible={false} content={[undefined]} height={[undefined]} />
 </View>"
 `;
