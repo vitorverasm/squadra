@@ -7,7 +7,7 @@ const initialState = {
     { id: '2', tagName: 'Linear Algebra' },
     { id: '3', tagName: 'Artificial Inteligence' }
   ],
-  currentTag: { id: '0', tagName: 'Neural Networks' }
+  currentTag: { id: null, tagName: null }
 };
 
 const cameraReducer = (state = initialState, action) => {
@@ -16,12 +16,6 @@ const cameraReducer = (state = initialState, action) => {
       return {
         ...state,
         currentTag: action.payload
-      };
-    }
-    case types.CLEAR_CURRENT_TAG: {
-      return {
-        ...state,
-        currentTag: null
       };
     }
     default:

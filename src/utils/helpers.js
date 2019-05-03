@@ -6,7 +6,9 @@ import RNFetchBlob from 'rn-fetch-blob';
 const savePhoto = (base64String, currentTagName, filename) => {
   const { dirs } = RNFetchBlob.fs;
   const basePath = Platform.OS === 'android' ? dirs.PictureDir : dirs.DocumentDir;
-  const savePath = `${basePath}/squadra/${currentTagName}/${filename}`;
+  const savePath = currentTagName
+    ? `${basePath}/squadra/${currentTagName}/${filename}`
+    : `${basePath}/squadra/${filename}`;
   RNFetchBlob.fs
     .writeFile(savePath, base64String, 'base64')
     .then(() => {
