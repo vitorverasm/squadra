@@ -1,8 +1,12 @@
+import { iOSColors } from 'react-native-typography';
+
 const colors = {
-  primary: '#F73939',
-  white: '#FFFFFF',
-  black: '#333333',
-  modalOpacity: 'rgba(51,51,51,0.50)'
+  primary: iOSColors.red,
+  white: iOSColors.white,
+  black: iOSColors.black,
+  gray: iOSColors.gray,
+  crimsonRed: '#A50B25',
+  modalOpacity: 'rgba(20,20,23,0.5)'
 };
 
 const fonts = {

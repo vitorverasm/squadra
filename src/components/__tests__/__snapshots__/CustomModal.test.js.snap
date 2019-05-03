@@ -6,7 +6,7 @@ exports[`CustomModal renders correctly 1`] = `
     <View style={{...}}>
       <View style={{...}}>
         <TouchableOpacity onPress={[undefined]} activeOpacity={0.2}>
-          <Icon name=\\"x\\" size={25} color=\\"#F73939\\" style={{...}} allowFontScaling={false} />
+          <Icon name=\\"x\\" size={25} color=\\"#FF3B30\\" style={{...}} allowFontScaling={false} />
         </TouchableOpacity>
       </View>
       <View style={{...}} />
@@ -21,7 +21,7 @@ exports[`CustomModal renders with props 1`] = `
     <View style={{...}}>
       <View style={{...}}>
         <TouchableOpacity onPress={[Function: bound fn]} activeOpacity={0.2}>
-          <Icon name=\\"x\\" size={25} color=\\"#F73939\\" style={{...}} allowFontScaling={false} />
+          <Icon name=\\"x\\" size={25} color=\\"#FF3B30\\" style={{...}} allowFontScaling={false} />
         </TouchableOpacity>
       </View>
       <View style={{...}}>

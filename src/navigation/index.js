@@ -8,7 +8,8 @@ export default createAppContainer(
       [routes.CAMERA]: CameraContainer
     },
     {
-      initialRouteName: routes.CAMERA
+      initialRouteName: routes.CAMERA,
+      headerMode: 'none'
     }
   )
 );

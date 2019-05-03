@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagCard renders correctly 1`] = `
+"<View style={{...}}>
+  <TouchableOpacity onPress={[Function: bound fn]} style={{...}} activeOpacity={0.2}>
+    <Icon name=\\"check\\" size={14} color=\\"#FFFFFF\\" style={{...}} allowFontScaling={false} />
+    <Text style={{...}}>
+      teste
+    </Text>
+  </TouchableOpacity>
+</View>"
+`;
