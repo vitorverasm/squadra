@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagSelector renders correctly 1`] = `"<FlatList style={{...}} contentContainerStyle={{...}} horizontal={true} showsHorizontalScrollIndicator={false} data={{...}} renderItem={[Function: renderItem]} keyExtractor={[Function: keyExtractor]} disableVirtualization={false} initialNumToRender={10} maxToRenderPerBatch={10} onEndReachedThreshold={2} scrollEventThrottle={50} updateCellsBatchingPeriod={50} windowSize={21} numColumns={1} removeClippedSubviews={false} />"`;

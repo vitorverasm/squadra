@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotAuthMessage renders correctly 1`] = `
+"<View style={{...}}>
+  <View style={{...}}>
+    <Image style={{...}} source={{...}} />
+    <View style={{...}}>
+      <Text style={{...}}>
+        Oops!
+        
+        
+      </Text>
+      <Text style={{...}}>
+        Você precisa conceder as permissões necessárias para que o Squadra funcione direitinho.
+      </Text>
+    </View>
+  </View>
+</View>"
+`;

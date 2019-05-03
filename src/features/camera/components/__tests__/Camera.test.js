@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
+import { RNCamera } from 'react-native-camera';
 import Camera from '../Camera';
 
 describe('Camera', () => {
@@ -30,5 +31,22 @@ describe('Camera', () => {
     });
     wrapper.setState({ writeExternalPermission: true });
     await wrapper.instance().takePicture();
+  });
+
+  it('goToAlbums', () => {
+    const wrapper = shallow(<Camera />);
+    expect(wrapper.instance().goToAlbums()).not.toBeNull();
+  });
+
+  it('toggleFlash', () => {
+    const wrapper = shallow(<Camera />);
+    wrapper.instance().toggleFlash();
+    expect(wrapper.state().cameraFlash).toBe(RNCamera.Constants.FlashMode.on);
+  });
+
+  it('request permissions again', () => {
+    const wrapper = shallow(<Camera />);
+    const camera = wrapper.find('RNCamera');
+    expect(camera.props().onStatusChange({ cameraStatus: 'NOT_AUTHORIZED' })).not.toBeNull();
   });
 });
