@@ -60,7 +60,6 @@ class Camera extends Component {
   render() {
     const { cameraReady, cameraFlash } = this.state;
     const { tags } = this.props;
-    console.log({ tags: tags.length });
     return (
       <View style={styles.container}>
         <Header tags={tags} />
