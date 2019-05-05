@@ -6,6 +6,7 @@ import CustomModal from '../../../components/CustomModal';
 import { formatFilename, requestPermission, savePhoto } from '../../../utils/helpers';
 import ActionBar from './ActionBar';
 import NotAuthMessage from './NotAuthMessage';
+import Header from './Header';
 
 class Camera extends Component {
   constructor(props) {
@@ -58,8 +59,11 @@ class Camera extends Component {
 
   render() {
     const { cameraReady, cameraFlash } = this.state;
+    const { tags } = this.props;
+    console.log({ tags: tags.length });
     return (
       <View style={styles.container}>
+        <Header tags={tags} />
         <RNCamera
           ref={(camera) => {
             this.camera = camera;

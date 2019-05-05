@@ -1,12 +1,7 @@
 import * as types from '../actions/types';
 
 const initialState = {
-  tags: [
-    { id: '0', tagName: 'Neural Networks' },
-    { id: '1', tagName: 'Statistics' },
-    { id: '2', tagName: 'Linear Algebra' },
-    { id: '3', tagName: 'Artificial Inteligence' }
-  ],
+  tags: [],
   currentTag: { id: null, tagName: null }
 };
 
