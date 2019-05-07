@@ -13,7 +13,6 @@ class Camera extends Component {
     super(props);
     this.state = {
       writeExternalPermission: false,
-      showModal: false,
       cameraFlash: RNCamera.Constants.FlashMode.off
     };
   }
@@ -34,14 +33,17 @@ class Camera extends Component {
     this.setState({ writeExternalPermission: permission, cameraReady: true });
   };
 
-  closeModal = () => {
-    this.setState({ showModal: false });
-  };
-
-  renderModal = (content, height) => {
-    const { showModal } = this.state;
+  renderModal = () => {
+    const {
+      showModal, modalContent, closeAddTagModal, modalHeight
+    } = this.props;
     return (
-      <CustomModal close={this.closeModal} visible={showModal} content={content} height={height} />
+      <CustomModal
+        close={closeAddTagModal}
+        visible={showModal}
+        content={modalContent}
+        height={modalHeight}
+      />
     );
   };
 
@@ -59,10 +61,15 @@ class Camera extends Component {
 
   render() {
     const { cameraReady, cameraFlash } = this.state;
-    const { tags } = this.props;
+    const { tags, showAddTagModal } = this.props;
     return (
       <View style={styles.container}>
-        <Header tags={tags} />
+        <Header
+          tags={tags}
+          leftOnPress={() => {}}
+          centerOnPress={showAddTagModal}
+          rightOnPress={() => {}}
+        />
         <RNCamera
           ref={(camera) => {
             this.camera = camera;

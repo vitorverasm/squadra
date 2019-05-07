@@ -6,10 +6,12 @@ import { human, sanFranciscoWeights } from 'react-native-typography';
 import Icon from 'react-native-vector-icons/Feather';
 import { colors } from '../../../utils/styles';
 
-const Header = ({ tags }) => (
+const Header = ({
+  tags, leftOnPress, centerOnPress, rightOnPress
+}) => (
   <View style={styles.container}>
     <View style={styles.box}>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
+      <TouchableOpacity style={styles.touchable} onPress={leftOnPress}>
         <Icon
           name="sliders"
           size={16}
@@ -24,13 +26,13 @@ const Header = ({ tags }) => (
           styles.touchable,
           { backgroundColor: colors.primary, margin: 10, borderRadius: 30 }
         ]}
-        onPress={() => {}}
+        onPress={centerOnPress}
       >
         <Text style={styles.headerText}>{tags.length === 0 ? 'Add Tag' : 'Edit Tags'}</Text>
       </TouchableOpacity>
     </View>
     <View style={styles.box}>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
+      <TouchableOpacity style={styles.touchable} onPress={rightOnPress}>
         <Icon
           name="zoom-in"
           size={16}
