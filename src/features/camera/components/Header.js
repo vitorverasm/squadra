@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet, Text, TouchableOpacity, View
+  StyleSheet, Text, TouchableOpacity, View, StatusBar
 } from 'react-native';
 import { human, sanFranciscoWeights } from 'react-native-typography';
 import Icon from 'react-native-vector-icons/Feather';
@@ -10,6 +10,7 @@ const Header = ({
   tags, leftOnPress, centerOnPress, rightOnPress
 }) => (
   <View style={styles.container}>
+    <StatusBar backgroundColor={colors.black} barStyle="light-content" />
     <View style={styles.box}>
       <TouchableOpacity style={styles.touchable} onPress={leftOnPress}>
         <Icon

@@ -5,8 +5,8 @@ import { RNCamera } from 'react-native-camera';
 import CustomModal from '../../../components/CustomModal';
 import { formatFilename, requestPermission, savePhoto } from '../../../utils/helpers';
 import ActionBar from './ActionBar';
-import NotAuthMessage from './NotAuthMessage';
 import Header from './Header';
+import NotAuthMessage from './NotAuthMessage';
 
 class Camera extends Component {
   constructor(props) {

@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { closeModalAction, showModalAction } from '../../actions/generalActions';
 import Camera from './components/Camera';
+import EditTagsContainer from './EditTags.container';
 
 const mapStateToProps = state => ({
   currentTag: state.camera.currentTag,
@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  showAddTagModal: () => dispatch(showModalAction(<View style={{ flex: 1, backgroundColor: 'red' }} />, '90%')),
+  showAddTagModal: () => dispatch(showModalAction(<EditTagsContainer />, '90%')),
   closeAddTagModal: () => dispatch(closeModalAction())
 });
 
