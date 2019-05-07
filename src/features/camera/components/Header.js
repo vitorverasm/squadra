@@ -26,7 +26,7 @@ const Header = ({ tags }) => (
         ]}
         onPress={() => {}}
       >
-        <Text style={styles.headerText}>{tags.length === 0 ? 'Add tag' : 'Edit tags'}</Text>
+        <Text style={styles.headerText}>{tags.length === 0 ? 'Add Tag' : 'Edit Tags'}</Text>
       </TouchableOpacity>
     </View>
     <View style={styles.box}>
