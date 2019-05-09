@@ -14,12 +14,6 @@ describe('Camera', () => {
     expect(wrapper.instance().onCameraReady()).not.toBeNull();
   });
 
-  it('closeModal', () => {
-    const wrapper = shallow(<Camera />);
-    wrapper.instance().closeModal();
-    expect(wrapper.state().showModal).toBe(false);
-  });
-
   it('takePicture', async () => {
     const wrapper = shallow(<Camera currentTag={{ id: '0', tagName: 'Neural Networks' }} />);
     wrapper.instance().camera = {
