@@ -15,23 +15,25 @@ const cameraReducer = (state = initialState, action) => {
       };
     }
     case types.NEW_TAG: {
+      const tags = [...state.tags];
+      tags.push({ id: `${uuidv1()}`, tagName: action.payload });
       return {
         ...state,
-        tags: state.tags.concat([{ id: `${uuidv1()}`, tagName: action.payload }]).reverse()
+        tags
       };
     }
     case types.DELETE_TAG: {
-      const newTags = state.tags;
-      const delIndex = newTags.findIndex((tag) => {
+      const tags = [...state.tags];
+      const delIndex = tags.findIndex((tag) => {
         if (tag.id === action.payload) {
           return true;
         }
         return false;
       });
-      newTags.splice(delIndex, 1);
+      tags.splice(delIndex, 1);
       return {
         ...state,
-        tags: newTags
+        tags
       };
     }
     default:
