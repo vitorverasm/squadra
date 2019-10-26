@@ -107,6 +107,17 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy 'react-native-camera', 'general'
+    }
+    signingConfigs {
+        release {
+            if (project.hasProperty('SQUADRA_RELEASE_STORE_FILE')) {
+                storeFile file(SQUADRA_RELEASE_STORE_FILE)
+                storePassword SQUADRA_RELEASE_STORE_PASSWORD
+                keyAlias SQUADRA_RELEASE_KEY_ALIAS
+                keyPassword SQUADRA_RELEASE_KEY_PASSWORD
+            }
+        }
     }
     splits {
         abi {
@@ -120,6 +131,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -138,6 +150,10 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-linear-gradient')
+    implementation project(':react-native-vector-icons')
+    implementation project(':rn-fetch-blob')
+    implementation project(':react-native-camera')
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

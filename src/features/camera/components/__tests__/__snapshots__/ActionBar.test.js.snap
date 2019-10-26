@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionBar renders correctly 1`] = `
+"<View style={{...}}>
+  <View style={{...}}>
+    <Connect(TagSelector) />
+  </View>
+  <View style={{...}}>
+    <TouchableOpacity style={{...}} onPress={[Function: bound fn]} activeOpacity={0.2}>
+      <Icon name=\\"zap\\" size={30} color=\\"#FF3B30\\" style={{...}} allowFontScaling={false} />
+      <Text style={{...}}>
+        ON
+      </Text>
+    </TouchableOpacity>
+    <TouchableHighlight onPress={[Function: bound fn]} style={{...}} underlayColor=\\"#A50B25\\" activeOpacity={0} delayPressOut={100}>
+      <View style={{...}} />
+    </TouchableHighlight>
+    <TouchableOpacity style={{...}} onPress={[Function: bound fn]} activeOpacity={0.2}>
+      <Icon name=\\"image\\" size={30} color=\\"#FFFFFF\\" style={{...}} allowFontScaling={false} />
+    </TouchableOpacity>
+  </View>
+</View>"
+`;

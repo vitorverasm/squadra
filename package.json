@@ -5,7 +5,7 @@
   "scripts": {
     "release": "node node_modules/react-native/local-cli/cli.js run-android --variant=release",
     "debug": "node node_modules/react-native/local-cli/cli.js run-android",
-    "clean": "cd android && gradlew clean && cd ..",
+    "clean": "cd android && ./gradlew clean && cd ..",
     "build:dev": "npm run clean && npm run debug",
     "build:release": "npm run clean && npm run release",
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -15,17 +15,25 @@
     "test:coverage": "npm test -- --coverage",
     "lint": "eslint src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
-    "coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
+    "rn-menu": "adb shell input keyevent KEYCODE_MENU"
   },
   "dependencies": {
+    "moment": "^2.24.0",
     "react": "16.8.3",
     "react-native": "0.59.3",
+    "react-native-camera": "^2.3.0",
     "react-native-gesture-handler": "^1.1.0",
+    "react-native-linear-gradient": "^2.5.4",
+    "react-native-typography": "^1.4.0",
+    "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.3.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
     "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rn-fetch-blob": "^0.10.15",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -66,7 +74,8 @@
       "!<rootDir>/node_modules/",
       "!<rootDir>/src/assets/",
       "!<rootDir>/src/utils/*",
-      "!<rootDir>/src/store.js"
+      "!<rootDir>/src/store.js",
+      "!**/*.container.js"
     ]
   },
   "nyc": {
@@ -84,7 +93,8 @@
       "build",
       "src/store.js",
       "src/utils/*",
-      "src/assets/*"
+      "src/assets/*",
+      "**/*.container.js"
     ]
   }
 }
